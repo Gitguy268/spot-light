@@ -6,6 +6,10 @@ Spot the black labrador chases a laser dot, in 2D, 3D or 8-bit, across three gam
 
 </div>
 
+<!-- live-links -->
+**Live:** [gitguy268.github.io/spot-light](https://gitguy268.github.io/spot-light/) · [spot-light-pi.vercel.app](https://spot-light-pi.vercel.app)
+<!-- /live-links -->
+
 <!-- run-steps:start -->
 ## Run it locally, step by step
 

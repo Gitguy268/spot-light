@@ -1,0 +1,5 @@
+Spot-light is MIT licensed, see LICENSE.
+
+Third-party parts keep their own licences:
+- three.js r149 (vendor/three.min.js): MIT, see vendor/LICENSE.
+- Fonts Atkinson Hyperlegible, Lilita One and Press Start 2P, loaded from Google Fonts: SIL Open Font License 1.1.

@@ -1,0 +1,12 @@
+# Spot-light
+
+> A browser game: Spot, a two-year-old black labrador with a red collar, chases a red laser dot that the player steers with the mouse or arrow keys. One self-contained index.html plus three.js r149. MIT licence.
+
+- Modes: Dodge (60 seconds, 3 lives, keep the dot away), Endless (count catches), Lure (steer Spot into a cup, a sock and a ball).
+- Views: 2D top-down or 3D (three.js); Normal or 8-bit style. V and B switch, Esc pauses.
+- No network requests besides Google Fonts; no data stored.
+
+## Links
+- [Play](https://gitguy268.github.io/spot-light/)
+- [Source](https://github.com/Gitguy268/spot-light)
+- [Spot-light HD, the realistic version](https://github.com/Gitguy268/spot-light-hd)

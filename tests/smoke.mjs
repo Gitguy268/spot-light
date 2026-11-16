@@ -23,15 +23,18 @@ for (const view of ['2d', '3d']) for (const bit of ['0', '1']) for (const mode o
   await page.click(`[data-view="${view}"]`);
   await page.click(`[data-bit="${bit}"]`);
   await page.click(`[data-mode="${mode}"]`);
-  const before = await page.evaluate(() => window.__spot());
+  // distance travelled, not start vs end: he may run a loop and finish where he began
+  let prev = await page.evaluate(() => window.__spot()), travelled = 0;
   for (let i = 0; i < 12; i++) {
     const a = i / 12 * Math.PI * 2;
     await page.mouse.move(600 + Math.cos(a) * 380, 400 + Math.sin(a) * 250, { steps: 4 });
     await page.waitForTimeout(60);
+    const cur = await page.evaluate(() => window.__spot());
+    travelled += Math.hypot(cur.x - prev.x, cur.z - prev.z); prev = cur;
   }
-  const after = await page.evaluate(() => window.__spot());
+  const after = prev;
   if (after.view !== view) problems.push(`${mode}/${view}/${bit}: view is ${after.view}`);
-  if (Math.hypot(after.x - before.x, after.z - before.z) < 0.05) problems.push(`${mode}/${view}/${bit}: Spot did not move`);
+  if (travelled < 0.05) problems.push(`${mode}/${view}/${bit}: Spot did not move`);
   if (mode === 'lure' && after.items.length !== 3) problems.push(`lure: expected 3 items, got ${after.items.length}`);
   await page.keyboard.press('Escape');
   if (!(await page.isVisible('#pause'))) problems.push(`${mode}/${view}/${bit}: Esc did not pause`);
